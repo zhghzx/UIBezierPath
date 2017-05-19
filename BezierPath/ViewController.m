@@ -31,7 +31,12 @@
     layer1.fillColor = [UIColor greenColor].CGColor;
     [self.view.layer addSublayer:layer1];
     
-
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    animation.fromValue = @0;
+    animation.toValue = @1;
+    animation.duration = 2;
+    [layer1 addAnimation:animation forKey:nil];
+    
     TestBezierPath *bezier = [[TestBezierPath alloc] initWithFrame:CGRectMake(0, 150, self.view.frame.size.width, 500)];
     [self.view addSubview:bezier];
 }
